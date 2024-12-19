@@ -1,1 +1,1 @@
-{"Parameters":{"SEED":11}}
+{"Parameters":{"STROKE_COLOR":{"red":0.0,"green":70.0,"blue":80.0,"alpha":30.0},"HUE_FIXED_OFFSET":10.0,"HUE_GAUSSIAN_OFFSET_FACTOR":5.0,"WIDTH":2025,"PADDING":0.2,"HEIGHT":2025,"BLEND_MODE":256,"GAUSSIAN_RANDOM_FACTOR":0.5,"BACKGROUND_COLOR":{"red":255.0,"green":255.0,"blue":255.0,"alpha":255.0},"MARGIN":50.0,"MAX_RECURSION_DEPTH":18,"ADD_QUAD_FACTOR":0.005,"SEED":20250112,"COLOR_MODE":{"mode":3,"max1":360.0,"max2":100.0,"max3":100.0,"maxA":100.0},"INITIAL_HUE":100.0,"FILL_COLOR":{"red":20.0,"green":20.0,"blue":20.0,"alpha":255.0}}}

@@ -5,16 +5,31 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import static processing.core.PConstants.HSB;
+import static processing.core.PConstants.SCREEN;
+
 public final class Parameters {
-    public static final long SEED = 20250101;
-    public static final int WIDTH = 1000;
-    public static final int HEIGHT = 1000;
-    public static final float NOISE_SCALE = 1 / 200f;
-    public static final Color BACKGROUND_COLOR = new Color(220);
-    public static final Color STROKE_COLOR = new Color(24, 11, 5, 120);
+    public static final long SEED = 20250112;
+
+    public static final int WIDTH = 2025;
+    public static final int HEIGHT = 2025;
+    public static final float MARGIN = 50;
+    public static final int MAX_RECURSION_DEPTH = 18;
+    public static final float PADDING = .2f;
+    public static final float GAUSSIAN_RANDOM_FACTOR = .5f;
+    public static final float HUE_FIXED_OFFSET = 10;
+    public static final float HUE_GAUSSIAN_OFFSET_FACTOR = 5;
+    public static final float ADD_QUAD_FACTOR = .005f;
+    public static final Color BACKGROUND_COLOR = new Color(255);
+    public static final Color FILL_COLOR = new Color(20);
+    public static final ColorMode COLOR_MODE = new ColorMode(HSB, 360, 100, 100, 100);
+    public static final Color STROKE_COLOR = new Color(0, 70, 80, 30);
+    public static final int BLEND_MODE = SCREEN;
+    public static final float INITIAL_HUE = 100;
+
 
     /**
-     * Helper method to extract the constants in order to genuary._2025.save them to a json file
+     * Helper method to extract the constants in order to save them to a json file
      *
      * @return a Map of the constants (name -> value)
      */
@@ -22,14 +37,14 @@ public final class Parameters {
         Map<String, Object> map = new HashMap<>();
 
         Field[] declaredFields = Parameters.class.getDeclaredFields();
-        for(Field field : declaredFields) {
+        for (Field field : declaredFields) {
             map.put(field.getName(), field.get(Parameters.class));
         }
 
         return Collections.singletonMap(Parameters.class.getSimpleName(), map);
     }
 
-    public record Color (float red, float green, float blue, float alpha) {
+    public record Color(float red, float green, float blue, float alpha) {
         public Color(float red, float green, float blue) {
             this(red, green, blue, 255);
         }
@@ -65,5 +80,8 @@ public final class Parameters {
                 default -> throw new IllegalArgumentException();
             };
         }
+    }
+
+    public record ColorMode(int mode, float max1, float max2, float max3, float maxA) {
     }
 }
